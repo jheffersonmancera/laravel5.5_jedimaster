@@ -18,8 +18,17 @@
 			</tr>
 		</thead>
 		<tbody>
-				
-			{{dd($elements)}}
+			@foreach ($elements as $element)
+			<tr>
+				<td>{{$element->id}}</td>				
+				<td>{{$element->name}}</td>
+				<td>{{$element->body}}</td>
+				<td>{{$element->short}}</td>
+				<td></td>
+
+			</tr>
+			@endforeach	
+			
 		</tbody>
 
 

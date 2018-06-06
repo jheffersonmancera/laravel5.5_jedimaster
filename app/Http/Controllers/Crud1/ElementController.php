@@ -27,7 +27,7 @@ class ElementController extends Controller
      */
     public function create()
     {
-        //
+        return view('crud1.create');
     }
 
     /**

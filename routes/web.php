@@ -17,7 +17,10 @@ Route::get('/', function () {
 
 Route::get('crud1','Crud1\ElementController@index')->name('crud1');
 
+Route::get('createc1','Crud1\ElementController@create')->name('createc1');
 
 Route::get('pdf',function(){
 	return view('group1.pdf');
 });
+
+Route::resource('elements','Crud1\ElementController');

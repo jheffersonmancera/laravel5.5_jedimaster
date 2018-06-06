@@ -4,7 +4,7 @@
 
 	<div class="col-sm-8">
 		<h2>Listado de Elementos
-			<a href="#" class="btn btn-primary pull-right">Nuevo Elemento</a>
+			<a href="{{route('elements.create')}}" class="btn btn-primary pull-right">Nuevo Elemento</a>
 		</h2>
 	@include('crud1.fragment.info')
 	<table class="table table-hover table-striped">
@@ -21,10 +21,13 @@
 			@foreach ($elements as $element)
 			<tr>
 				<td>{{$element->id}}</td>				
-				<td>{{$element->name}}</td>
+				<td><strong>{{$element->name}}</strong></td>
 				<td>{{$element->body}}</td>
 				<td>{{$element->short}}</td>
-				<td></td>
+				<td>
+					
+
+				</td>
 
 			</tr>
 			@endforeach	
@@ -34,8 +37,8 @@
 
 
 	</table>
+	{!!$elements->render()!!}
 	
-
 
 
 

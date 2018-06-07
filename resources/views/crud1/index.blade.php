@@ -24,10 +24,9 @@
 				<td><strong>{{$element->name}}</strong></td>
 				<td>{{$element->body}}</td>
 				<td>{{$element->short}}</td>
-				<td>
-					
-
-				</td>
+				<td><a href="{{route('elements.show',$element->id) }}" class"btn btn-link">Ver</a></td>
+				<td><a href="{{route('elements.edit',$element->id) }}" class"btn btn-link">Editar</a></td>
+				<td></td>
 
 			</tr>
 			@endforeach	

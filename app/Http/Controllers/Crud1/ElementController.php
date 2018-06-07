@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Crud1;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ElementFormRequest;
 use App\Element;
 //request
 
@@ -16,7 +17,7 @@ class ElementController extends Controller
      */
     public function index()
     {
-        $elements=Element::orderBy('id')->paginate();
+        $elements=Element::orderBy('id','DES')->paginate(10);
         return view('crud1.index',compact('elements'));
     }
 
@@ -38,7 +39,17 @@ class ElementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $element = new Element;
+
+        $element->name   =  $request->name;
+        $element->short  =  $request->short;
+        $element->body   =  $request->body;
+
+        $element->save();
+
+        return redirect()->route('elements.index')
+						 ->with('info', 'El elemento id:'.$element->id.' fué actualizado');
+
     }
 
     /**
@@ -49,7 +60,8 @@ class ElementController extends Controller
      */
     public function show($id)
     {
-        //
+        $element = Element::find($id);
+        return view('elements.show',compact('element'));
     }
 
     /**
